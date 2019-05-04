@@ -1,0 +1,9 @@
+.vs/
+obj/
+Debug/
+Release/
+build/
+*.ptx
+*.vcxproj.user
+*.csproj.user
+*.pubxml.user

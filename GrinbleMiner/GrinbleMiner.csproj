@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <Version>0.1.0</Version>
+    <Authors>lwYeo</Authors>
+    <Company>lwYeo@github</Company>
+    <Copyright>Copyright © 2019 lwYeo</Copyright>
+    <Platforms>x64;AnyCPU</Platforms>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="kernel.cl" />
+    <None Remove="kernel_61.ptx" />
+    <None Remove="kernel_75.ptx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="kernel.cl" />
+    <EmbeddedResource Include="kernel_61.ptx" />
+    <EmbeddedResource Include="kernel_75.ptx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ManagedCuda-100" Version="10.0.31" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\opencl-dotnet\OpenCl.DotNetCore.Interop\OpenCl.DotNetCore.Interop.csproj" />
+    <ProjectReference Include="..\opencl-dotnet\OpenCl.DotNetCore\OpenCl.DotNetCore.csproj" />
+  </ItemGroup>
+
+</Project>
